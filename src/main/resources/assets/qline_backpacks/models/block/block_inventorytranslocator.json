@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "qline_backpacks:blocks/block_inventorytranslocator"
+    }
+}
