@@ -9,7 +9,6 @@ public class QLineBackpacksCreativeTab extends CreativeTabBase
 	public QLineBackpacksCreativeTab()
 	{
 		super("qline_backpacks", new ItemStack(Blocks.ANVIL), "qline_backpacks.png");
-		// TODO Auto-generated constructor stub
 	}
 
 }
