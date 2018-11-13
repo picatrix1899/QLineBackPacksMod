@@ -1,5 +1,6 @@
 package com.picatrix1899.qline.backpacks.proxy;
 
+import com.picatrix1899.qline.backpacks.capabilities.CapabilityWorldBlockPosList;
 import com.picatrix1899.qline.backpacks.containers.ContainerInventoryTranslocator;
 import com.picatrix1899.qline.backpacks.gui.GuiInventoryTranslocator;
 import com.picatrix1899.qline.backpacks.tiles.TileEntityInventoryTranslocator;
@@ -18,11 +19,12 @@ import net.minecraftforge.fml.common.network.IGuiHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class CommonProxy implements IGuiHandler
+public class CommonProxy 
 {
     public void preInit(FMLPreInitializationEvent event)
     {	
-    	GameRegistry.registerTileEntity(TileEntityInventoryTranslocator.class, new ResourceLocation("qline_backpacks:" + TileEntityInventoryTranslocator.class.getSimpleName()));
+    	registerCapabilities();
+    	registerTileEntities();
     }
 
     public void init(FMLInitializationEvent event)
@@ -36,45 +38,14 @@ public class CommonProxy implements IGuiHandler
     
     public void registerItemRenderer(Item item, int meta, String id) { }
 
-	@Override
-	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
-	{
-		BlockPos pos = new BlockPos(x, y, z);
-		TileEntity tileentity = world.getTileEntity(pos);
-		
-		switch(ID)
-		{
-			case 0:
-			{
-				if ((tileentity instanceof TileEntityInventoryTranslocator))
-				{
-					return ((TileEntityInventoryTranslocator)tileentity).createContainer(player);
-				}
-				break;
-			}
-		}
-
-		return null;
-	}
-
-	@Override
-	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
-	{
-		BlockPos pos = new BlockPos(x, y, z);
-		TileEntity tileentity = world.getTileEntity(pos);
-		
-		switch(ID)
-		{
-			case 0:
-			{
-				if ((tileentity instanceof TileEntityInventoryTranslocator))
-				{
-					return new GuiInventoryTranslocator(((TileEntityInventoryTranslocator)tileentity).createContainer(player));
-				}
-				break;
-			}
-		}
-
-		return null;
-	}
+    
+    protected void registerCapabilities()
+    {
+    	CapabilityWorldBlockPosList.register();
+    }
+    
+    protected void registerTileEntities()
+    {
+    	GameRegistry.registerTileEntity(TileEntityInventoryTranslocator.class, new ResourceLocation("qline_backpacks:" + TileEntityInventoryTranslocator.class.getSimpleName()));
+    }
 }

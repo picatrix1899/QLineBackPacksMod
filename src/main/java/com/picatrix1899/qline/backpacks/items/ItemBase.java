@@ -1,8 +1,8 @@
 package com.picatrix1899.qline.backpacks.items;
 
-import com.picatrix1899.qline.backpacks.IHasModel;
 import com.picatrix1899.qline.backpacks.QLineBackpacksMod;
 import com.picatrix1899.qline.backpacks.init.ModTabs;
+import com.picatrix1899.qline.backpacks.utils.IHasModel;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;

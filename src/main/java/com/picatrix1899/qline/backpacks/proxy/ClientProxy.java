@@ -1,5 +1,6 @@
 package com.picatrix1899.qline.backpacks.proxy;
 
+import com.picatrix1899.qline.backpacks.capabilities.CapabilityWorldBlockPosList;
 import com.picatrix1899.qline.backpacks.tiles.TileEntityInventoryTranslocator;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -15,7 +16,7 @@ public class ClientProxy extends CommonProxy
 {
     public void preInit(FMLPreInitializationEvent event)
     {
-    	GameRegistry.registerTileEntity(TileEntityInventoryTranslocator.class, new ResourceLocation("qline_backpacks:" + TileEntityInventoryTranslocator.class.getSimpleName()));
+    	super.preInit(event);
     }
 
     public void init(FMLInitializationEvent event)

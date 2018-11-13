@@ -11,7 +11,7 @@ public class ModBlocks
 {
 	public static final List<Block> BLOCKS = new ArrayList<Block>();
 	
-	public static final BlockInventoryTranslocator INVENTORY_TRANSLOCATOR_T1_BLOCK = new BlockInventoryTranslocator();
+	public static final BlockInventoryTranslocator INVENTORY_TRANSLOCATOR_BLOCK = new BlockInventoryTranslocator();
 	
 	
 }

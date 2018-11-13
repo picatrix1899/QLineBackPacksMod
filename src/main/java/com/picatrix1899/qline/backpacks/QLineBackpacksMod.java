@@ -1,6 +1,7 @@
 package com.picatrix1899.qline.backpacks;
 
 import net.minecraft.init.Blocks;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -13,6 +14,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 import org.apache.logging.log4j.Logger;
 
 import com.picatrix1899.qline.backpacks.proxy.CommonProxy;
+import com.picatrix1899.qline.backpacks.utils.handlers.GuiHandler;
 
 @Mod(modid = QLineBackpacksMod.MODID, name = QLineBackpacksMod.NAME, version = QLineBackpacksMod.VERSION)
 public class QLineBackpacksMod
@@ -33,6 +35,7 @@ public class QLineBackpacksMod
     public void preInit(FMLPreInitializationEvent event)
     {
         logger = event.getModLog();
+        
         this.proxy.preInit(event);
     }
 
@@ -41,7 +44,7 @@ public class QLineBackpacksMod
     {
       this.proxy.init(event);
       
-      NetworkRegistry.INSTANCE.registerGuiHandler(INSTANCE, proxy);
+      NetworkRegistry.INSTANCE.registerGuiHandler(INSTANCE, new GuiHandler());
     }
     
     @EventHandler

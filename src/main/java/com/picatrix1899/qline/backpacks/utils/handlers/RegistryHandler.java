@@ -2,11 +2,11 @@ package com.picatrix1899.qline.backpacks.utils.handlers;
 
 import java.util.ArrayList;
 
-import com.picatrix1899.qline.backpacks.IHasModel;
 import com.picatrix1899.qline.backpacks.init.ModBlocks;
 import com.picatrix1899.qline.backpacks.init.ModItems;
 import com.picatrix1899.qline.backpacks.items.ItemEntangledTranslocatorParticle;
 import com.picatrix1899.qline.backpacks.tiles.TileEntityInventoryTranslocator;
+import com.picatrix1899.qline.backpacks.utils.IHasModel;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityItem;
