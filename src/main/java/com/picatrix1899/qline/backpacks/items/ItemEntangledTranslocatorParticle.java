@@ -11,6 +11,7 @@ import com.picatrix1899.qline.backpacks.capabilities.WorldBlockPosList;
 import com.picatrix1899.qline.backpacks.init.ModItems;
 import com.picatrix1899.qline.backpacks.init.ModTabs;
 import com.picatrix1899.qline.backpacks.tiles.TileEntityInventoryTranslocator;
+import com.picatrix1899.qline.backpacks.utils.ICapabilityAttacher;
 import com.picatrix1899.qline.backpacks.utils.ItemStackUtils;
 import com.picatrix1899.qline.backpacks.utils.NBTUtils;
 import com.picatrix1899.qline.backpacks.utils.WorldBlockPos;
@@ -44,7 +45,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
 @EventBusSubscriber
-public class ItemEntangledTranslocatorParticle extends ItemBase
+public class ItemEntangledTranslocatorParticle extends ItemBase implements ICapabilityAttacher
 {
 	public ItemEntangledTranslocatorParticle()
 	{
@@ -52,7 +53,6 @@ public class ItemEntangledTranslocatorParticle extends ItemBase
 		setUnlocalizedName("entangledtranslocatorparticle");
 		setRegistryName("entangledtranslocatorparticle");
 		setMaxStackSize(1);
-		ModItems.ITEMS.add(this);
 	}
 	
 	@Override
@@ -76,14 +76,7 @@ public class ItemEntangledTranslocatorParticle extends ItemBase
 		return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
 	}
 	
-	@SubscribeEvent
-	public static void attachCapabilities(AttachCapabilitiesEvent<ItemStack> event)
-	{
-		if(event.getObject().getItem() instanceof ItemEntangledTranslocatorParticle)
-		{
-			event.addCapability(new ResourceLocation(QLineBackpacksMod.MODID), new CapabilityWorldBlockPosList().createProvider(new WorldBlockPosList()));
-		}
-	}
+
 	
 	@SubscribeEvent
 	public static void onItemPickUp(EntityItemPickupEvent event)
@@ -144,5 +137,15 @@ public class ItemEntangledTranslocatorParticle extends ItemBase
 					particle.getCapability(CapabilityWorldBlockPosList.WORLD_BLOCK_POS_LIST_CAPABILITY, null).removePosition(pos);
 			}
 		}
+	}
+
+	@Override
+	public List<ICapabilityProvider> getProviders(ItemStack stack)
+	{
+		ArrayList<ICapabilityProvider> out = Lists.newArrayList();
+		
+		out.add(CapabilityWorldBlockPosList.createProvider(new WorldBlockPosList()));
+		
+		return out;
 	}
 }

@@ -13,10 +13,10 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 import org.apache.logging.log4j.Logger;
 
+import com.picatrix1899.qline.backpacks.handlers.GuiHandler;
 import com.picatrix1899.qline.backpacks.proxy.CommonProxy;
-import com.picatrix1899.qline.backpacks.utils.handlers.GuiHandler;
 
-@Mod(modid = QLineBackpacksMod.MODID, name = QLineBackpacksMod.NAME, version = QLineBackpacksMod.VERSION)
+@Mod(modid = QLineBackpacksMod.MODID, name = QLineBackpacksMod.NAME, version = QLineBackpacksMod.VERSION, acceptedMinecraftVersions = "1.12.2")
 public class QLineBackpacksMod
 {
     public static final String MODID = "qline_backpacks";

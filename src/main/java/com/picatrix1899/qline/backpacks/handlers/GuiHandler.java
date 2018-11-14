@@ -1,6 +1,7 @@
-package com.picatrix1899.qline.backpacks.utils.handlers;
+package com.picatrix1899.qline.backpacks.handlers;
 
 import com.picatrix1899.qline.backpacks.gui.GuiInventoryTranslocator;
+import com.picatrix1899.qline.backpacks.init.ModGuiContainer;
 import com.picatrix1899.qline.backpacks.tiles.TileEntityInventoryTranslocator;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,7 +20,7 @@ public class GuiHandler implements IGuiHandler
 		
 		switch(ID)
 		{
-			case 0:
+			case ModGuiContainer.INVENTORY_TRANSLOCATOR:
 			{
 				if ((tileentity instanceof TileEntityInventoryTranslocator))
 				{
@@ -40,7 +41,7 @@ public class GuiHandler implements IGuiHandler
 		
 		switch(ID)
 		{
-			case 0:
+			case ModGuiContainer.INVENTORY_TRANSLOCATOR:
 			{
 				if ((tileentity instanceof TileEntityInventoryTranslocator))
 				{

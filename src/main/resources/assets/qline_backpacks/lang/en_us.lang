@@ -3,3 +3,7 @@ itemGroup.qline_backpacks=Quantum Line Backpacks
 tile.block_inventorytranslocator.name=Player Inventory Translocator
 
 item.entangledtranslocatorparticle.name=Entangled Translocator Particle
+
+item.flowerpouch.name=Flower Pouch [WIP]
+item.foodpouch.name=Food Pouch [WIP]
+item.treepouch.name=Tree Pouch [WIP]

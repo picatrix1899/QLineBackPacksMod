@@ -1,4 +1,4 @@
-package com.picatrix1899.qline.backpacks.utils.handlers;
+package com.picatrix1899.qline.backpacks.handlers;
 
 import java.util.ArrayList;
 

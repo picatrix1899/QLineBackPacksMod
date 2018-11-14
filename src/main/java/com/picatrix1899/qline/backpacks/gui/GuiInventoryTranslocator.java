@@ -21,7 +21,7 @@ public class GuiInventoryTranslocator extends GuiContainer
 		
 		GUI_BACKGROUND = new ResourceLocation("qline_backpacks:textures/gui/container/inventorytranslocator.png");
 	}
-
+	
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY)
 	{
